@@ -1,31 +1,20 @@
 // import React from "react";
 import { FcShipped } from "react-icons/fc";
-import Button from "./Button";
+import Button from "./components/Button";
+import ButtonPage from "./pages/ButtonPage";
+import Accordion from "./components/Accordion"
 
 function App() {
+  const materials =[
+    {title:"İspanyolet", content:"kanat dikey"},
+    {title:"Makas", content:"kanat yatay"},
+    {title:"Cam", content:"kanat dolgusu"},
+    {title:"Pivot karşılığı", content:"kasa dikey"},
+    {title:"İspanyolet karşılığı", content:"kasa"},
+  ]
   return (
     <div>
-      <div>
-        <Button onClick={()=>console.log("button one clicked")} rounded className="bg-red-500 text-black" blue primary namelength="1">one</Button>
-      </div>
-      <div>
-        <Button secondary>two</Button>
-      </div>
-      <div>
-        <Button success outline>three</Button>
-      </div>
-      <div>
-        <Button warning rounded><FcShipped />four</Button>
-      </div>
-      <div>
-        <Button outline danger >four</Button>
-      </div>
-      <div>
-        <Button outline>four</Button>
-      </div>
-      <div>
-        <Button rounded>four</Button>
-      </div>
+      <Accordion list={materials}/>
     </div>
   )
 }
