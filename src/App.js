@@ -1,21 +1,30 @@
-// import React from "react";
-import { FcShipped } from "react-icons/fc";
-import Button from "./components/Button";
-import ButtonPage from "./pages/ButtonPage";
-import Accordion from "./components/Accordion"
+import { NavigationProvider } from "./context/NavigationContext"
+import DropdownPage from "./pages/DropdownPage"
+import AccordionPage from "./pages/AccordionPage"
+import ButtonPage from "./pages/ButtonPage"
+import SideBar from "./components/SideBar";
+import Route from "./components/Route";
+import ModalPage from "./pages/ModalPage";
+
+
+
 
 function App() {
-  const materials =[
-    {title:"İspanyolet", content:"kanat dikey"},
-    {title:"Makas", content:"kanat yatay"},
-    {title:"Cam", content:"kanat dolgusu"},
-    {title:"Pivot karşılığı", content:"kasa dikey"},
-    {title:"İspanyolet karşılığı", content:"kasa"},
-  ]
+
+
   return (
-    <div>
-      <Accordion list={materials}/>
-    </div>
+    <NavigationProvider>
+      <div className="flex bg-blue-200">
+      <SideBar />
+      <Route path="/dropdown"><DropdownPage/></Route>
+      <Route path="/accordion"><AccordionPage/></Route>
+      <Route path="/button"><ButtonPage/></Route>
+      <Route path="/modal"><ModalPage/></Route>
+      </div>
+      
+    </NavigationProvider>
+
+
   )
 }
 
